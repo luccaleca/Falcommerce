@@ -1,0 +1,39 @@
+1. Estrutura de Planos Atualizada:
+Definimos 4 planos para a Falcommerce:
+Plano Básico: 5 funcionalidades, incluindo 1 funcionalidade premium.
+Plano Intermediário: 8 funcionalidades, incluindo 2 funcionalidades premium.
+Plano Avançado: 12 funcionalidades, incluindo 4 funcionalidades premium.
+Plano Personalizado: Funcionalidades ilimitadas, todas sob medida, desenvolvidas de acordo com as necessidades do cliente.
+
+2. Funcionalidades Premium:
+Todos os planos incluem funcionalidades premium, com a quantidade aumentando conforme o nível do plano:
+1 funcionalidade premium no plano básico, 2 no intermediário, e 4 no avançado.
+
+3. Definição de Funcionalidade:
+Uma funcionalidade é uma solução digital específica, focada em uma área de negócios, com as seguintes características:
+Focada em uma tarefa ou conjunto de tarefas específicas.
+Independente, autossuficiente e geradora de resultados claros.
+Cada funcionalidade cobre um processo de negócio específico (vendas, marketing, finanças, etc.).
+
+4. Organização por Departamentos:
+As funcionalidades serão organizadas em departamentos como Marketing, Financeiro, RH, Estoque, Expedição, Vendas, etc.
+Essa estrutura facilita a navegação e permite que as empresas escolham as ferramentas relevantes para suas operações, tornando o catálogo de funcionalidades mais intuitivo.
+
+5. Acesso Restrito por Departamento:
+Decidimos implementar acesso restrito por departamento, onde cada setor da empresa terá acesso apenas às ferramentas relacionadas à sua área.
+Caso um colaborador precise acessar ferramentas de outro departamento, ele deverá solicitar permissão ao administrador do sistema.
+
+6. Páginas da Aplicação:
+Definimos as principais páginas da aplicação da Falcommerce:
+Página Inicial (Home): Apresentação da Falcommerce e dos planos.
+Página de Planos: Detalhes dos planos e opções de escolha.
+Catálogo de Funcionalidades: Lista de ferramentas divididas por departamentos, com opções para seleção.
+Checkout: Página para finalizar a compra dos planos.
+Página de Confirmação: Confirmação e resumo da compra.
+Painel do Cliente: Gerenciamento de planos, funcionalidades e suporte.
+Página de Suporte: Canais de atendimento e suporte ao cliente.
+FAQ (Dúvidas Frequentes): Perguntas e respostas comuns.
+Sobre Nós: Informações sobre a empresa.
+Termos de Serviço: Regras de uso da plataforma.
+Política de Privacidade: Detalhes sobre segurança e dados.
+Página de Tutoriais: Vídeos e guias para uso das funcionalidades.
