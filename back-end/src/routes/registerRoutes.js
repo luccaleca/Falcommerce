@@ -1,12 +1,7 @@
-//src/routes/registerRoutes.js
-
 const express = require('express');
-const registerController = require('../controllers/registerController')
-const validateRequest = require('../middleware/validateRequest')
-
+const { registerUser } = require('../controllers/registerController');
 const router = express.Router();
 
-//Define a rota de cadastro com validação e requisição
-router.post('/register', validadeRequest, RegisterController.registerUser);
+router.post('/register', registerUser);
 
 module.exports = router;

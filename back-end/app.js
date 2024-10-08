@@ -1,13 +1,20 @@
+//app.js
 const express = require('express');
-const authRoutes = require('./routes/AuthRoutes');
-require('dotenv').config();
+const bodyParser = require('body-parser');
 
+
+//cria um instância do express
 const app = express();
-app.use(express.json());
 
-app.use('/api/auth', authRoutes);
+//configurar middlewares globais
+app.arguments(bodyParser.json()); //serve para interpretar JSON no corpo das requisições
+app.use(bodyParser.urlencoded({ extended: true})); //para interpretar dados de formularios
 
-const PORT = process.env.PORT||3001;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+//rota de registro
+const registerRoutes = require('./src/routes/registerRoutes')
+
+//middlewares para tratar erros
+app.use((err, req, res, next) => {
+    console.error(er.stack);
+    res.status(500).send
+})

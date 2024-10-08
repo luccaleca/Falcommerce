@@ -1,11 +1,20 @@
-const UserService = require('../services/userService');
+const { createUser } = require('../models/userModels')
 
-exports.registerUser = async (req, res) => {
+const registerUser = async (req, res) => {
     try {
-        const userData = req.body;
-        const newUser = await UserService.createUser(userData);
-        res.status(201).json({ message: 'User successfully registered!', user: newUser });
+        const { nome_usuario, senha, email } = req.body;
+
+        //validação mínima
+        if(!nome_usuario || !senha || !email) {
+            return res.status(400).json({ message: 'Todos os campos são obrigatorios'});
+        }
+
+        await createUser(nome_usuario, senha, email);
+        res.status(201).json ({ messsage: 'Usuario registrado com sucesso'});
     } catch (error) {
-        res.status(500).json({ error: 'Error in registering user' });
-    }
-};
+        console.error(error) 
+        res.status(500).json({ message: 'Erro ao registrar usuario'});
+        }
+    };
+
+    module.exports = { registerUser };
