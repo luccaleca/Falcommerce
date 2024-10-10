@@ -1,17 +1,47 @@
-const User = require('../models/userModels');
-const jwt = require('jsonwebtoken');
+// src/controllers/authController.js
+const authService = require('../services/authService');
 
-exports.login = async (req, res) => {
-    const { email, password } = req.body;
+exports.register = async (req, res) => {
     try {
-        const user = await User.findOne({ where: { email } });
-        if (!user || !(await user.matchPassword(password))) {
-            return res.status(401).json({ error: 'Invalid credentials' });
-        }
-        // Gerar token JWT
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.json({ token });
+        const { nome_usuario, email, senha } = req.body;
+        const result = await authService.register(nome_usuario, email, senha);
+        res.status(201).json({
+            message: 'Usuário registrado com sucesso',
+            user: result.user,
+            token: result.token
+        });
     } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
+        console.error('Erro no registro:', error);
+        if (error.message === 'Usuário já existe') {
+            return res.status(400).json({ message: error.message });
+        }
+        res.status(500).json({ message: 'Erro ao registrar usuário' });
     }
 };
+
+exports.login = async (req, res) => {
+    try {
+        const { email, senha } = req.body;
+        const result = await authService.login(email, senha);
+        res.json({
+            message: 'Login bem-sucedido',
+            user: result.user,
+            token: result.token
+        });
+    } catch (error) {
+        console.error('Erro no login:', error);
+        if (error.message === 'Credenciais inválidas') {
+            return res.status(401).json({ message: error.message });
+        }
+        res.status(500).json({ message: 'Erro ao fazer login' });
+    }
+};
+
+exports.logout = (req, res) => {
+    res.status(200).json({
+        message: 'Logout realizado com sucesso',
+        info: 'O token deve ser removido no lado do cliente'
+    });
+};
+
+// aqui pode adicionar mais funções de autenticação
