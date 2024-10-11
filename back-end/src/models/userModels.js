@@ -11,11 +11,11 @@ const User = sequelize.define('User', {
         primaryKey: true
     },
     nome_usuario: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false,
         unique: true,
         validate: {
@@ -23,11 +23,11 @@ const User = sequelize.define('User', {
         }
     },
     senha_hash: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(255),
         allowNull: false
     },
     token_recuperacao: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: true
     },
     data_expiracao_token: {
