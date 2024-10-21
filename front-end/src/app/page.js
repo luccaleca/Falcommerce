@@ -9,6 +9,7 @@ export default function Home() {
     <div className="space-x-4">
       <Link href="/planos">Ver planos</Link>
       <Link href="/sobre">Saiba Mais</Link>
+      <Link href="/sobreNos">Sobre Nós</Link>
     </div>
    </div>
   );

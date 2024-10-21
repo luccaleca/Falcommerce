@@ -33,15 +33,7 @@ exports.login = async (req, res) => {
         if (error.message === 'Credenciais inválidas') {
             return res.status(401).json({ message: error.message });
         }
-        res.status(500).json({ message: 'Erro ao fazer login' });
     }
 };
 
-exports.logout = (req, res) => {
-    res.status(200).json({
-        message: 'Logout realizado com sucesso',
-        info: 'O token deve ser removido no lado do cliente'
-    });
-};
 
-// aqui pode adicionar mais funções de autenticação
