@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Falcommerce</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:underline text-gray-300">Sobre Nós</Link></li>
+              <li><Link href="/sobreNos" className="hover:underline text-gray-300">Sobre Nós</Link></li>
               <li><Link href="#" className="hover:underline text-gray-300">Termos de Serviço</Link></li>
               <li><Link href="#" className="hover:underline text-gray-300">Política de Privacidade</Link></li>
               <li><Link href="#" className="hover:underline text-gray-300">Contato</Link></li>
@@ -32,6 +32,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">Funcionalidades</h3>
             <ul className="space-y-2">
               <li><Link href="#" className="hover:underline text-gray-300">Catálogo</Link></li>
+              <li><Link href="#" className="hover:underline text-gray-300">Planos</Link></li>
               <li><Link href="#" className="hover:underline text-gray-300">Padrão</Link></li>
               <li><Link href="#" className="hover:underline text-gray-300">Personalizadas</Link></li>
               <li><Link href="#" className="hover:underline text-gray-300">Híbridas</Link></li>

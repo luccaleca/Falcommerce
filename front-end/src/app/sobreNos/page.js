@@ -6,8 +6,11 @@ export default function SobreNos() {
 
             <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4">Nossa Proposta</h2>
-                <p className="text-lg">A Falcommerce é uma plataforma inovadora que visa transformar o mercado de e-commerce, oferecendo soluções 
-                    acessíveis e eficientes para otimizar operações online.
+                <p className="text-lg">A Falcommerce é uma empresa SaaS focada em fornecer softwares que irão auxiliar toda a estrutura
+                    por trás de um e-commerce. Com o objetivo de democratizar as automações que os softwares são capazes de 
+                    fornecer, A Falcommerce foi criada para oferecer soluções de automação para todos os setores de um e-commerce,
+                    incluindo áreas como marketing, vendas, financeiro,logística, estoque, entre outras. Nosso público alvo inclui desde
+                    negócios iniciantes até marcas consolidadas ja no mercado, sempre oferecendo os serviços de forma economica e acessivel.
                 </p>
             </section>
 
