@@ -21,11 +21,11 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Central de Ajuda</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:underline text-gray-300">Base de Conhecimento</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Suporte</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">FAQs</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Comunidade</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Guia de Início</Link></li>
+              <li><Link href="/centralAjuda/baseDeConhecimento" className="hover:underline text-gray-300">Base de Conhecimento</Link></li>
+              <li><Link href="/centralAjuda/faqs" className="hover:underline text-gray-300">FAQs</Link></li>
+              <li><Link href="/centralAjuda/comunidade" className="hover:underline text-gray-300">Comunidade</Link></li>
+              <li><Link href="/centralAjuda/guiaDeInicio" className="hover:underline text-gray-300">Guia de Início</Link></li>
+              <li><Link href="/centralAjuda/suporte" className="hover:underline text-gray-300">Suporte</Link></li>
             </ul>
           </div>
           <div>

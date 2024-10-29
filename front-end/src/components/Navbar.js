@@ -1,3 +1,4 @@
+// src/components/Navbar.js
 "use client"; 
 
 import Link from "next/link";
@@ -27,6 +28,7 @@ export default function Navbar() {
                             </button>
                             {showFuncionalidadesDropdown && (
                                 <ul className="absolute left-0 mt-0 bg-white text-black rounded shadow-lg z-10 w-48">
+                                    <li><Link href="/catalogo" className="block px-4 py-2 hover:bg-gray-100">Catálogo</Link></li>
                                     <li><Link href="/funcionalidades/padrao" className="block px-4 py-2 hover:bg-gray-100">Padrão</Link></li>
                                     <li><Link href="/funcionalidades/personalizada" className="block px-4 py-2 hover:bg-gray-100">Personalizadas</Link></li>
                                     <li><Link href="/funcionalidades/hibrida" className="block px-4 py-2 hover:bg-gray-100">Híbridas</Link></li>
@@ -47,16 +49,16 @@ export default function Navbar() {
                                     <div className="mb-4">
                                         <h4 className="font-bold mb-2">Ajuda e Atendimento</h4>
                                         <ul className="space-y-2">
-                                            <li><Link href="/ajuda/central" className="block hover:bg-gray-100">Central de Ajuda</Link></li>
-                                            <li><Link href="/ajuda/suporte" className="block hover:bg-gray-100">Contato com Suporte</Link></li>
-                                            <li><Link href="/blog" className="block hover:bg-gray-100">Blog da Falcommerce</Link></li>
+                                            <Link href="/centralAjuda" className="block hover:bg-gray-100">Central de Ajuda</Link>
+                                            <li><Link href="/centralAjuda/suporte" className="block hover:bg-gray-100">Suporte</Link></li>
+                                            <li><Link href="/blog" className="block hover:bg-gray-100">Blog</Link></li>
                                         </ul>
                                     </div>
                                     <div>
                                         <h4 className="font-bold mb-2">Tópicos Mais Acessados</h4>
                                         <ul className="space-y-2">
-                                            <li><Link href="/sobre" className="block hover:bg-gray-100">O que é a Falcommerce?</Link></li>
-                                            <li><Link href="/funcionalidades/mais-usadas" className="block hover:bg-gray-100">Funcionalidades Mais Usadas</Link></li>
+                                            <li><Link href="/sobreNos" className="block hover:bg-gray-100">O que é a Falcommerce?</Link></li>
+                                            <li><Link href="/catalogo#mais-usadas" className="block hover:bg-gray-100">Funcionalidades Mais Usadas</Link></li>
                                             <li><Link href="/guia-inicio" className="block hover:bg-gray-100">Guia de Início Rápido</Link></li>
                                             <li><Link href="/crescimento-negocios" className="block hover:bg-gray-100">Crescimento dos Negócios</Link></li>
                                         </ul>

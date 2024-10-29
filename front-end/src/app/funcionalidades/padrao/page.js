@@ -5,6 +5,8 @@ import Link from "next/link";
 
 export default function FuncionalidadesPadrao() {
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedDepartment, setSelectedDepartment] = useState("");
+
     const funcionalidades = [
         // Financeiro
         { id: 1, nome: "Gestão de Orçamento", departamento: "Financeiro", descricao: "Controle de despesas e receitas", imagem: "/images/gestao-orcamento.jpg" },
@@ -25,7 +27,6 @@ export default function FuncionalidadesPadrao() {
         { id: 12, nome: "Análise de Demanda", departamento: "Estoque", descricao: "Previsão de demanda", imagem: "/images/demanda.jpg" },
         { id: 13, nome: "Gestão de Armazém", departamento: "Estoque", descricao: "Otimização de armazenamento", imagem: "/images/armazem.jpg" },
        
-
         // Logística
         { id: 15, nome: "Gestão de Transporte", departamento: "Logística", descricao: "Planejamento de entregas", imagem: "/images/transporte.jpg" },
         { id: 16, nome: "Rastreamento de Encomendas", departamento: "Logística", descricao: "Monitoramento de pedidos", imagem: "/images/rastreamento.jpg" },
@@ -44,7 +45,8 @@ export default function FuncionalidadesPadrao() {
     const departamentos = [...new Set(funcionalidades.map(f => f.departamento))];
 
     const filteredFuncionalidades = funcionalidades.filter(func =>
-        func.nome.toLowerCase().includes(searchTerm.toLowerCase())
+        (func.nome.toLowerCase().includes(searchTerm.toLowerCase()) || searchTerm === "") &&
+        (func.departamento === selectedDepartment || selectedDepartment === "")
     );
 
     return (
@@ -66,15 +68,15 @@ export default function FuncionalidadesPadrao() {
                 {departamentos.map((dept, index) => (
                     <button
                         key={index}
-                        className="bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded mr-2 mb-2"
-                        onClick={() => setSearchTerm(dept)}
+                        className={`py-2 px-4 rounded mr-2 mb-2 ${selectedDepartment === dept ? "bg-blue-500 text-white" : "bg-gray-200 text-black"}`}
+                        onClick={() => setSelectedDepartment(dept)}
                     >
                         {dept}
                     </button>
                 ))}
                 <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-                    onClick={() => setSearchTerm("")}
+                    className={`py-2 px-4 rounded ${selectedDepartment === "" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"}`}
+                    onClick={() => setSelectedDepartment("")}
                 >
                     Todos
                 </button>
