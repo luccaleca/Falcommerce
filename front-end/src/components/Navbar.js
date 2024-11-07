@@ -1,5 +1,4 @@
-// src/components/Navbar.js
-"use client"; 
+"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -10,7 +9,7 @@ export default function Navbar() {
     const [showRecursosDropdown, setShowRecursosDropdown] = useState(false);
 
     return (
-        <header className="bg-white text-black shadow-md border-b border-black">
+        <header className="fixed top-0 left-0 right-0 bg-white text-black shadow-md border-b border-black z-50">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center text-2xl font-bold mr-8">
@@ -28,7 +27,7 @@ export default function Navbar() {
                             </button>
                             {showFuncionalidadesDropdown && (
                                 <ul className="absolute left-0 mt-0 bg-white text-black rounded shadow-lg z-10 w-48">
-                                    <li><Link href="/catalogo" className="block px-4 py-2 hover:bg-gray-100">Catálogo</Link></li>
+                                    <li><Link href="/funcionalidades/catalogo" className="block px-4 py-2 hover:bg-gray-100">Catálogo</Link></li>
                                     <li><Link href="/funcionalidades/padrao" className="block px-4 py-2 hover:bg-gray-100">Padrão</Link></li>
                                     <li><Link href="/funcionalidades/personalizada" className="block px-4 py-2 hover:bg-gray-100">Personalizadas</Link></li>
                                     <li><Link href="/funcionalidades/hibrida" className="block px-4 py-2 hover:bg-gray-100">Híbridas</Link></li>
@@ -49,7 +48,7 @@ export default function Navbar() {
                                     <div className="mb-4">
                                         <h4 className="font-bold mb-2">Ajuda e Atendimento</h4>
                                         <ul className="space-y-2">
-                                            <Link href="/centralAjuda" className="block hover:bg-gray-100">Central de Ajuda</Link>
+                                            <Link href="/centralAjuda" className="block hover:bg-gray-100">Guia de Início</Link>
                                             <li><Link href="/centralAjuda/suporte" className="block hover:bg-gray-100">Suporte</Link></li>
                                             <li><Link href="/blog" className="block hover:bg-gray-100">Blog</Link></li>
                                         </ul>
@@ -58,9 +57,8 @@ export default function Navbar() {
                                         <h4 className="font-bold mb-2">Tópicos Mais Acessados</h4>
                                         <ul className="space-y-2">
                                             <li><Link href="/sobreNos" className="block hover:bg-gray-100">O que é a Falcommerce?</Link></li>
-                                            <li><Link href="/catalogo#mais-usadas" className="block hover:bg-gray-100">Funcionalidades Mais Usadas</Link></li>
-                                            <li><Link href="/guia-inicio" className="block hover:bg-gray-100">Guia de Início Rápido</Link></li>
-                                            <li><Link href="/crescimento-negocios" className="block hover:bg-gray-100">Crescimento dos Negócios</Link></li>
+                                            <li><Link href="/funcionalidades/catalogo#mais-usadas" className="block hover:bg-gray-100">Funcionalidades Mais Usadas</Link></li>
+                                            <li><Link href="/centralAjuda/crescimentoDosSetores" className="block hover:bg-gray-100">Crescimento dos Setores</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -70,7 +68,9 @@ export default function Navbar() {
                     </nav>
                 </div>
                 <div className="flex space-x-4 items-center">
-                    <Link href="/entrar" className="hover:underline">Fazer Login</Link>
+                    <Link href="/cadastrar" className="hover:underline">Cadastre-se</Link>
+                    <span>|</span>
+                    <Link href="/login" className="hover:underline">Faça login</Link>
                     <Link href="/comece-agora" className="bg-[#0D2B47] text-white py-2 px-4 rounded-full hover:bg-[#1a3e5c] transition duration-200">Comece Agora</Link>
                 </div>
             </div>

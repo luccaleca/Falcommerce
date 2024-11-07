@@ -89,7 +89,7 @@ export default function CatalogoFuncionalidades() {
                 </div>
             </div>
 
-            
+            {/* Funcionalidades Mais Usadas */}
             <div id="mais-usadas">
                 <h2 className="text-3xl font-semibold mb-4">Mais Usadas</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -101,7 +101,7 @@ export default function CatalogoFuncionalidades() {
                             <p className="mb-4">{func.descricao}</p>
                             <Link href={`/funcionalidades/${func.id}`}>
                                 <span className="text-blue-600 hover:underline">Saiba mais</span>
-                            </Link>
+                                </Link>
                         </div>
                     ))}
                 </div>

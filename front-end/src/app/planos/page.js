@@ -120,7 +120,7 @@ export default function Planos() {
                         {
                             nome: 'Avançado',
                             caracteristicas: [
-                                '2.000 a 5.000 leads mensais',
+                                '3.000 a 8.000 leads mensais',
                                 'Gastos com anúncios de até R$ 20.000/mês',
                                 'Taxa de conversão entre 4% e 6%',
                                 'Tráfego mensal de até 100.000 visitas',
@@ -129,10 +129,13 @@ export default function Planos() {
                         {
                             nome: 'Elite',
                             caracteristicas: [
-                                'Mais de 5.000 leads mensais',
-                                'Gastos com anúncios acima de R$ 20.000/mês',
-                                'Taxa de conversão acima de 6%',
-                                'Tráfego mensal superior a 100.000 visitas',
+                                'Mais de 8.000 leads mensais',
+                                'Gastos com anúncios acima de R$ 100.000/mês',
+                                'Taxa de conversão acima de 8%',
+                                'Tráfego mensal superior a 300.000 visitas',
+                                'Gerente de conta dedicado',
+                                'Acesso antecipado a funcionalidades',
+                                'Parcerias estratégicas',
                             ],
                         },
                     ].map((plano) => (

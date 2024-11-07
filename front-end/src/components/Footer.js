@@ -12,10 +12,9 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">Falcommerce</h3>
             <ul className="space-y-2">
               <li><Link href="/sobreNos" className="hover:underline text-gray-300">Sobre Nós</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Termos de Serviço</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Política de Privacidade</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Contato</Link></li>
-              <li><Link href="#" className="hover:underline text-gray-300">Mapa do Site</Link></li>
+              <li><Link href="/legal/termos" className="hover:underline text-gray-300">Termos de Serviço</Link></li>
+              <li><Link href="/legal/privacidade" className="hover:underline text-gray-300">Política de Privacidade</Link></li>
+              <li><Link href="/centralAjuda/suporte" className="hover:underline text-gray-300">Contato</Link></li>
             </ul>
           </div>
           <div>

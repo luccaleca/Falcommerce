@@ -1,9 +1,8 @@
 // app/layout.js
-
 "use client"; // Mantém o componente como cliente
 
 import localFont from "next/font/local";
-import "./globals.css";
+import "./styles/global.css";
 import Link from "next/link";
 
 import Footer from "@/components/Footer";
@@ -27,9 +26,11 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          {children}
-        </main>
+        <div className="mt-12"> 
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+        </div>
         <Footer />
       </body>
     </html>
