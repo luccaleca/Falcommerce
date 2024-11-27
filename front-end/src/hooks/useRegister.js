@@ -1,36 +1,47 @@
-//src/hooks/useRegister.js
-"use client";
+// src/hooks/useRegister.js
+
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { registerUser } from '../services/authService';
 
-export function useRegister() {
-    const [formData, setFormData] = useState({ nome:'',email:'',senha:''});
-    const router = useRouter();
+export const useRegister = () => {
+  const [formData, setFormData] = useState({ nome_usuario: '', email: '', senha: '' });
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
-    const handleRegister = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/api/auth/register', {
-                method:'POST',
-                headers: {'Content-Type':'application/json'},
-                body:JSON.stringify(formData),
-            });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
-            if(response.ok) {
-                alert('Registro bem-sucedido!');
-                router.push('/entrar');//redireciona para a pagina de login
-            } else {
-                const errorData = await response.json();
-                alert(`Erro:${errorData.message}`);
-            }
-        } catch(error) {
-            console.error('Erro ao registrar usuário',error);
-            alert('Erro ao registrar usuário');
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!acceptedTerms) {
+      alert('Você deve aceitar os termos de uso e a política de privacidade para se registrar.');
+      return;
+    }
 
-    return {
-        formData,
-        handleChange,
-        handleRegister,
-    };
-}
+    try {
+      const data = await registerUser(formData);
+      setSuccess('Cadastro realizado com sucesso!');
+      setError(null);
+      console.log('Usuário registrado:', data.user);
+    } catch (err) {
+      setError(err.message);
+      setSuccess(null);
+    }
+  };
+
+  return {
+    formData,
+    handleChange,
+    handleSubmit,
+    acceptedTerms,
+    setAcceptedTerms,
+    error,
+    success,
+  };
+};

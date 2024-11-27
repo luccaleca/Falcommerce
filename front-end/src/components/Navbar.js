@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
     const [showFuncionalidadesDropdown, setShowFuncionalidadesDropdown] = useState(false);
     const [showRecursosDropdown, setShowRecursosDropdown] = useState(false);
+    const { user, logout } = useAuth();
+
 
     return (
         <header className="fixed top-0 left-0 right-0 bg-white text-black shadow-md border-b border-black z-50">
@@ -68,9 +71,18 @@ export default function Navbar() {
                     </nav>
                 </div>
                 <div className="flex space-x-4 items-center">
-                    <Link href="/cadastrar" className="hover:underline">Cadastre-se</Link>
-                    <span>|</span>
-                    <Link href="/login" className="hover:underline">Faça login</Link>
+                    {user ? (
+                        <>
+                            <span className="hover:underline">Olá, {user.nome_usuario}</span>
+                            <button onClick={logout} className="hover:underline">Logout</button>
+                        </>
+                    ) : (
+                        <>
+                            <Link href="/cadastrar" className="hover:underline">Cadastre-se</Link>
+                            <span>|</span>
+                            <Link href="/login" className="hover:underline">Faça login</Link>
+                        </>
+                    )}
                     <Link href="/comece-agora" className="bg-[#0D2B47] text-white py-2 px-4 rounded-full hover:bg-[#1a3e5c] transition duration-200">Comece Agora</Link>
                 </div>
             </div>

@@ -1,7 +1,15 @@
 // src/app/planos/page.js
+'use client';
+import { useRouter } from 'next/navigation';
 import { FaCheck } from 'react-icons/fa';
 
 export default function Planos() {
+    const router = useRouter();
+
+    const handleEscolherPlano = (nome, preco) => {
+        router.push(`/pagamento?plano=${nome}&preco=${preco}`);
+    };
+
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-4xl font-bold mb-8 text-center">Planos e Preços</h1>
@@ -87,69 +95,15 @@ export default function Planos() {
                                 </li>
                             </ul>
                         </div>
-                        <button className="bg-[#0D2B47] text-white py-2 px-4 rounded-full hover:bg-[#1a3e5c] transition duration-200 mt-auto">
+                        <button 
+                            onClick={() => handleEscolherPlano(plano.nome, plano.preco)}
+                            className="bg-[#0D2B47] text-white py-2 px-4 rounded-full hover:bg-[#1a3e5c] transition duration-200 mt-auto"
+                        >
                             Escolher Plano
                         </button>
                     </div>
                 ))}
             </div>
-
-            {/* Seção "Qual é o Melhor Plano para o Seu Negócio?" */}
-            <section className="mt-12">
-                <h2 className="text-3xl font-bold mb-4 text-center">Qual é o Melhor Plano para o Seu Negócio?</h2>
-                <div className="space-y-6">
-                    {[
-                        {
-                            nome: 'Básico',
-                            caracteristicas: [
-                                'Até 500 leads mensais',
-                                'Gastos com anúncios de até R$ 1.000/mês',
-                                'Taxa de conversão de até 2%',
-                                'Tráfego mensal de até 10.000 visitas',
-                            ],
-                        },
-                        {
-                            nome: 'Intermediário',
-                            caracteristicas: [
-                                '500 a 2.000 leads mensais',
-                                'Gastos com anúncios de até R$ 5.000/mês',
-                                'Taxa de conversão entre 2% e 4%',
-                                'Tráfego mensal de até 50.000 visitas',
-                            ],
-                        },
-                        {
-                            nome: 'Avançado',
-                            caracteristicas: [
-                                '3.000 a 8.000 leads mensais',
-                                'Gastos com anúncios de até R$ 20.000/mês',
-                                'Taxa de conversão entre 4% e 6%',
-                                'Tráfego mensal de até 100.000 visitas',
-                            ],
-                        },
-                        {
-                            nome: 'Elite',
-                            caracteristicas: [
-                                'Mais de 8.000 leads mensais',
-                                'Gastos com anúncios acima de R$ 100.000/mês',
-                                'Taxa de conversão acima de 8%',
-                                'Tráfego mensal superior a 300.000 visitas',
-                                'Gerente de conta dedicado',
-                                'Acesso antecipado a funcionalidades',
-                                'Parcerias estratégicas',
-                            ],
-                        },
-                    ].map((plano) => (
-                        <div key={plano.nome} className="bg-gray-100 p-4 rounded-lg shadow-md">
-                            <h3 className="text-xl font-semibold">{plano.nome}</h3>
-                            <ul className="list-disc pl-6">
-                                {plano.caracteristicas.map((caracteristica, index) => (
-                                    <li key={index}>{caracteristica}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-            </section>
         </div>
     );
 }

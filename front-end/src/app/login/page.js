@@ -1,36 +1,16 @@
 "use client";
 
-import { useState } from 'react';
+import { useLogin } from '@/hooks/useLogin';
 import Link from 'next/link';
 
 export default function Login() {
-    // Estados locais para os dados do formulário
-    const [formData, setFormData] = useState({
-        email: '',
-        senha: '',
-    });
-
-    // Função para lidar com mudanças no formulário
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    // Função de submissão do formulário
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aqui, você pode chamar uma função para lidar com o login
-        console.log('Formulário de login submetido:', formData);
-    };
+    const { formData, handleChange, handleLogin, error, success } = useLogin();
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
                 <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleLogin}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email:</label>
                         <input
@@ -62,6 +42,8 @@ export default function Login() {
                         Entrar
                     </button>
                 </form>
+                {error && <p className="mt-4 text-center text-red-600">{error}</p>}
+                {success && <p className="mt-4 text-center text-green-600">{success}</p>}
                 <p className="mt-4 text-center">
                     Não tem uma conta?{' '}
                     <Link href="/cadastrar" className="text-blue-600 hover:underline">

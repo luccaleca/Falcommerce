@@ -1,44 +1,36 @@
-//server.js
+
+require('dotenv').config();
+
+
 const express = require('express');
-const dotenv = require('dotenv');
-const bodyParser = require('body-parser');  //serve para extrair o corpo das requisições e torna acessivel para o codigo
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const sequelize = require('./src/config/db');
+const authRoutes = require('./src/routes/authRoutes'); 
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-//Middlewares
+// Configurar CORS
+app.use(cors({
+    origin: 'http://localhost:3001', //URL do frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Middlewares
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-//Importar rotas
-const authRoutes = require('./src/routes/authRoutes')
+// Usar rotas de autenticação
+app.use('/auth', authRoutes);
 
-//Usar rotas
-app.use('/api/auth', authRoutes);
-
-//Rota básica para teste
-app.get('/', (req, res) => {
-    res.send('Bem-vindo a API da Falcommerce');
-});
-
-//Middleware de tratamento de erros
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ message:'Erro interno do servidor'});
-});
-
-//Definir a porta
-const PORT = process.env.PORT|| 3000;
-
-// Sincronizar com o banco de dados e iniciar o servidor
-sequelize.sync({ alter: true }) // Adicionamos { alter: true } aqui
-    .then(() => {
-        console.log('Banco de dados sincronizado com sucesso.');
-        app.listen(PORT, () => {
-            console.log(`Servidor rodando na porta ${PORT}`);
-            console.log(`Rotas de autenticação disponíveis em http://localhost:${PORT}/api/auth`);
-        });
-    })
-    .catch(err => {
-        console.error('Erro ao sincronizar com o banco de dados', err);
+// Inicializando o servidor
+sequelize.sync({ alter: true }).then(() => {
+    console.log('Banco de dados sincronizado com sucesso.');
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando na porta ${PORT}`);
     });
+}).catch(err => {
+    console.error('Erro ao sincronizar com o banco de dados', err);
+});

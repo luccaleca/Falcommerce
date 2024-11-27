@@ -4,6 +4,7 @@
 import localFont from "next/font/local";
 import "./styles/global.css";
 import Link from "next/link";
+import { AuthProvider } from "@/context/AuthContext";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -23,6 +24,7 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }) {
   return (
+    <AuthProvider>
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="flex flex-col min-h-screen">
         <Navbar />
@@ -34,5 +36,6 @@ export default function RootLayout({ children }) {
         <Footer />
       </body>
     </html>
+    </AuthProvider>
   );
 }

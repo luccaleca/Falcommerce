@@ -7,6 +7,7 @@ const authMiddleware = (req, res, next) => {
     // Obtém o token do cabeçalho da requisição
     const token = req.header('Authorization')?.replace(/^Bearer\s/, '');
 
+
     // Verifica se o token existe
     if (!token) {
         return res.status(401).json({ message: 'Acesso negado. Nenhum token fornecido' });
