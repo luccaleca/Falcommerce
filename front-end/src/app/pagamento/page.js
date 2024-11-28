@@ -3,20 +3,31 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
+import { assinarPlano } from '@/services/planoService';
 
 export default function Pagamento() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { user } = useAuth();
 
-  const [formaPagamento, setFormaPagamento] = useState('credito');
-  const [plano, setPlano] = useState({ nome: 'Premium', preco: 'R$ 59,90/mês' });
+ 
 
   const [numeroCartao, setNumeroCartao] = useState('');
   const [validade, setValidade] = useState('');
   const [cvv, setCvv] = useState('');
   const [nomeCartao, setNomeCartao] = useState('');
-
   const [errors, setErrors] = useState({});
+  const [mensagem, setMensagem] = useState('');
+
+  const planos = {
+    'Básico': 1,
+    'Intermediário': 2,
+    'Avançado': 3,
+    'Elite': 4
+  };
+
+  const [plano, setPlano] = useState({ nome: '', preco: '' });
 
   useEffect(() => {
     const nome = searchParams.get('plano');
@@ -41,13 +52,28 @@ export default function Pagamento() {
     return Object.keys(novosErros).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validarFormulario()) {
-      // Redirecionar para a página de confirmação de assinatura
-      router.push('/assinatura-confirmada');
+      const usuarioId = user?.id; // Obtenha o ID do usuário do contexto
+      const token = localStorage.getItem('token'); // Obtenha o token JWT do armazenamento local
+      const planoId = planos[plano.nome]; // Obtenha o ID do plano baseado no nome
+
+      if (!usuarioId || !token) {
+        setMensagem('Usuário não autenticado. Por favor, faça login novamente.');
+        return;
+      }
+
+      try {
+        const resposta = await assinarPlano(usuarioId, planoId, token);
+        setMensagem(`Assinatura bem-sucedida: ${resposta.mensagem}`);
+        router.push('/assinatura-confirmada');
+      } catch (error) {
+        setMensagem(`Erro ao assinar: ${error.message}`);
+      }
     }
   };
+
 
   const formatarNumeroCartao = (value) => {
     return value.replace(/\D/g, '').replace(/(\d{4})(?=\d)/g, '$1 ').substring(0, 19);
@@ -63,7 +89,6 @@ export default function Pagamento() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-md">
-      <h1 className="text-lg font-bold mb-2">PASSO 3 DE 3</h1>
       <h2 className="text-2xl font-bold mb-6">Informe os dados do seu cartão de crédito ou débito</h2>
 
       <div className="flex space-x-2 mb-4">
@@ -144,6 +169,7 @@ export default function Pagamento() {
           Iniciar assinatura
         </button>
       </form>
+      {mensagem && <p className="text-center mt-6 text-red-500">{mensagem}</p>}
     </div>
   );
 }

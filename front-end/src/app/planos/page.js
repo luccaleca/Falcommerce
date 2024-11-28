@@ -1,4 +1,3 @@
-// src/app/planos/page.js
 'use client';
 import { useRouter } from 'next/navigation';
 import { FaCheck } from 'react-icons/fa';
@@ -7,7 +6,7 @@ export default function Planos() {
     const router = useRouter();
 
     const handleEscolherPlano = (nome, preco) => {
-        router.push(`/pagamento?plano=${nome}&preco=${preco}`);
+        router.push(`/pagamento?plano=${encodeURIComponent(nome)}&preco=${encodeURIComponent(preco)}`);
     };
 
     return (

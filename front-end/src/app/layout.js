@@ -1,9 +1,9 @@
-// app/layout.js
 "use client"; // Mantém o componente como cliente
 
 import localFont from "next/font/local";
 import "./styles/global.css";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'; // Importa o hook de navegação
 import { AuthProvider } from "@/context/AuthContext";
 
 import Footer from "@/components/Footer";
@@ -23,19 +23,29 @@ const geistMono = localFont({
 });
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname(); // Obtém o pathname atual
+
+  // Define páginas onde o header e o footer serão ocultados
+  const pagesWithoutHeaderFooter = ['/inicio-meu-plano'];
+
+  // Verifica se a página atual deve ocultar o header e o footer
+  const isSpecialPage = pagesWithoutHeaderFooter.includes(pathname);
+
   return (
     <AuthProvider>
-    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="flex flex-col min-h-screen">
-        <Navbar />
-        <div className="mt-12"> 
-          <main className="flex-grow container mx-auto px-4 py-8">
-            {children}
-          </main>
-        </div>
-        <Footer />
-      </body>
-    </html>
+      <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
+        <body className="flex flex-col min-h-screen">
+          {/* Renderiza o Navbar apenas se não estiver na página especial */}
+          {!isSpecialPage && <Navbar />}
+          <div className={isSpecialPage ? "" : "mt-12"}>
+            <main className="flex-grow container mx-auto px-4 py-8">
+              {children}
+            </main>
+          </div>
+          {/* Renderiza o Footer apenas se não estiver na página especial */}
+          {!isSpecialPage && <Footer />}
+        </body>
+      </html>
     </AuthProvider>
   );
 }

@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 const authService = require('../services/authService');
 
 const authMiddleware = (req, res, next) => {
+    
     // Obtém o token do cabeçalho da requisição
     const token = req.header('Authorization')?.replace(/^Bearer\s/, '');
-
 
     // Verifica se o token existe
     if (!token) {
