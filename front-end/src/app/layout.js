@@ -38,9 +38,9 @@ export default function RootLayout({ children }) {
           {/* Renderiza o Navbar apenas se não estiver na página especial */}
           {!isSpecialPage && <Navbar />}
           <div className={isSpecialPage ? "" : "mt-12"}>
-            <main className="flex-grow container mx-auto px-4 py-8">
-              {children}
-            </main>
+          <main className="flex-grow max-w-screen-xl mx-auto px-4 py-8">
+  {children}
+</main>
           </div>
           {/* Renderiza o Footer apenas se não estiver na página especial */}
           {!isSpecialPage && <Footer />}
