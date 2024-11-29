@@ -1,11 +1,20 @@
-// src/app/page.js ou src/pages/index.js
+// src/app/page.js
 import React from 'react';
-import Carrossel from '@/components/design/Carrossel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faBookOpen, faBox, faCreditCard, faCog } from '@fortawesome/free-solid-svg-icons';
+
+import Carrossel from '@/components/home/Carrossel';
+import SegundaPergunta from '@/components/home/SegundaPergunta';
+import LinhaDoTempo from '@/components/home/LinhaDoTempo';
+import CaseSucesso from '@/components/home/CaseSucesso';
 
 const Home = () => {
   return (
-    <div >
-        <Carrossel /> 
+    <div>
+      <Carrossel />
+      <LinhaDoTempo />
+      <SegundaPergunta />
+      <CaseSucesso />
     </div>
   );
 };

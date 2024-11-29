@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Carrossel = () => {
   // Estado para armazenar o índice do slide atual
@@ -16,7 +16,7 @@ const Carrossel = () => {
     {
       image: "/images/Carrossel/carrossel_slide2_integracao.png",
       title: "Integrações com plataformas de e-commerce",
-      description: "Integre sistemas que você ja utiliza com nossas funcionalidades."
+      description: "Integre sistemas que você já utiliza com nossas funcionalidades."
     },
     {
       image: "/images/Carrossel/carrossel_slide3_funcionalidades.png",
@@ -36,6 +36,17 @@ const Carrossel = () => {
       prevIndex === 0 ? slides.length - 1 : prevIndex - 1
     );
   };
+
+  // Efeito para rotacionar os slides automaticamente a cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // 5000ms = 5 segundos
+
+    return () => {
+      clearInterval(interval); // Limpar o intervalo ao desmontar o componente
+    };
+  }, [currentIndex]);
 
   return (
     <div className="carousel-container" style={{ maxWidth: '1000px', margin: 'auto', position: 'relative', overflow: 'hidden', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>

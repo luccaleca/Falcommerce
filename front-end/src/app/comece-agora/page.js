@@ -42,7 +42,7 @@ export default function ComeceAgora() {
                             Realize sua compra junto com um de nossos atendentes para garantir que o plano escolhido atenderá todas as suas necessidades.
                         </p>
                     </div>
-                    <Link href="/comece-agora/assistido" className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600 transition duration-200 inline-block mt-4">
+                    <Link href="/centralAjuda/suporte" className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600 transition duration-200 inline-block mt-4">
                         Solicitar Acompanhamento
                     </Link>
                 </div>

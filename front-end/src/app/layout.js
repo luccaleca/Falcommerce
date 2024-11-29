@@ -26,7 +26,8 @@ export default function RootLayout({ children }) {
   const pathname = usePathname(); // Obtém o pathname atual
 
   // Define páginas onde o header e o footer serão ocultados
-  const pagesWithoutHeaderFooter = ['/inicio-meu-plano'];
+  const pagesWithoutHeaderFooter = ['/inicio-meu-plano', '/iniciar-meu-plano/meuPlano' ];
+  
 
   // Verifica se a página atual deve ocultar o header e o footer
   const isSpecialPage = pagesWithoutHeaderFooter.includes(pathname);
