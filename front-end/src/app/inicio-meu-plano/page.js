@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
+import '../inicio-meu-plano/custom.css'
 
 export default function CenteredRectangle() {
     const router = useRouter();
@@ -10,7 +11,7 @@ export default function CenteredRectangle() {
         // Lógica de autenticação (se necessário)
 
         // Redireciona o usuário para a página do plano
-        router.push('/iniciar-meu-plano/meuPlano');
+        router.push('/inicio-meu-plano/meuPlano');
     };
 
     return (

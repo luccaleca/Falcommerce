@@ -1,0 +1,16 @@
+/* custom.css */
+
+.min-h-screen {
+    min-height: 100vh; /* Assegura que a tela mantenha a altura mínima desejada */
+  }
+  
+  .bg-white {
+    background-color: #ffffff; /* Cor de fundo branca para o conteúdo */
+  }
+  
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
