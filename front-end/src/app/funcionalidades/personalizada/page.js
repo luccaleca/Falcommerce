@@ -104,7 +104,7 @@ export default function FuncionalidadesPersonalizadas() {
                         </select>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Descrição do Problema</label>
+                        <label className="block text-gray-700">Descrição</label>
                         <textarea
                             name="descricao"
                             value={formData.descricao}

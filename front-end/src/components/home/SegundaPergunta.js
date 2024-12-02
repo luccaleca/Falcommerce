@@ -4,11 +4,10 @@ import React from 'react';
 const SegundaPergunta = () => {
   return (
     <section className="my-16 px-8 max-w-7xl mx-auto">
-      <div className="bg-gray-100 text-gray-900 py-8 px-4 rounded-lg shadow-md mb-12 text-center">
-        <h2 className="text-3xl font-bold">
+        <h2 className="text-4xl font-bold text-center mb-8">
           Qual a vantagem para o meu comércio?
         </h2>
-      </div>
+      
 
       <div className="flex flex-wrap justify-center gap-8">
         {/* Card 1 - Personalização do Negócio */}
