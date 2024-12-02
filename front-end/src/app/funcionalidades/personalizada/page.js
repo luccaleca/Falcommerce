@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import useSolicitacaoFuncionalidade from '../../../hooks/useSolicitacaoFuncionalidade';
 
 export default function FuncionalidadesPersonalizadas() {
     const [formData, setFormData] = useState({
-        nome: "",
-        email: "",
         departamento: "",
         descricao: ""
     });
+
+    const { solicitacao, error, loading, enviarSolicitacao } = useSolicitacaoFuncionalidade("personalizada");
 
     const departamentos = [
         "CEO",
@@ -26,8 +27,7 @@ export default function FuncionalidadesPersonalizadas() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Lógica para enviar o formulário
-        console.log(formData);
+        enviarSolicitacao(formData);
     };
 
     return (
@@ -67,28 +67,6 @@ export default function FuncionalidadesPersonalizadas() {
                 <h2 className="text-3xl font-bold mb-4">Solicite Sua Funcionalidade Personalizada</h2>
                 <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
                     <div className="mb-4">
-                        <label className="block text-gray-700">Nome</label>
-                        <input
-                            type="text"
-                            name="nome"
-                            value={formData.nome}
-                            onChange={handleChange}
-                            className="w-full p-2 border rounded"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full p-2 border rounded"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
                         <label className="block text-gray-700">Departamento</label>
                         <select
                             name="departamento"
@@ -104,7 +82,7 @@ export default function FuncionalidadesPersonalizadas() {
                         </select>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Descrição do Problema</label>
+                        <label className="block text-gray-700">Descrição</label>
                         <textarea
                             name="descricao"
                             value={formData.descricao}
@@ -115,9 +93,11 @@ export default function FuncionalidadesPersonalizadas() {
                             required
                         ></textarea>
                     </div>
-                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Enviar Solicitação
+                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" disabled={loading}>
+                        {loading ? 'Enviando...' : 'Enviar Solicitação'}
                     </button>
+                    {error && <p className="text-red-500 mt-2">{error}</p>}
+                    {solicitacao && <p className="text-green-500 mt-2">Solicitação enviada com sucesso!</p>}
                 </form>
             </section>
         </div>

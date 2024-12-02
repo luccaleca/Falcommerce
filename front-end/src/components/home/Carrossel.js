@@ -9,17 +9,17 @@ const Carrossel = () => {
   // Slides com as imagens e textos
   const slides = [
     {
-      image: "/images/Carrossel/carrossel_slide1_resumo.png",
+      image: "/images/home/Carrossel/carrossel_slide1_resumo.png",
       title: "Impulsione Seu Negócio",
       description: "Transforme o desempenho do seu e-commerce com nossos serviços."
     },
     {
-      image: "/images/Carrossel/carrossel_slide2_integracao.png",
+      image: "/images/home/Carrossel/carrossel_slide2_integracao.png",
       title: "Integrações com plataformas de e-commerce",
       description: "Integre sistemas que você já utiliza com nossas funcionalidades."
     },
     {
-      image: "/images/Carrossel/carrossel_slide3_funcionalidades.png",
+      image: "/images/home/Carrossel/carrossel_slide3_funcionalidades.png",
       title: "Funcionalidades Inovadoras",
       description: "Descubra ferramentas que aceleram seu crescimento."
     },

@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import useSolicitacaoFuncionalidade from '../../../hooks/useSolicitacaoFuncionalidade';
 
 export default function FuncionalidadesHibridas() {
     const [formData, setFormData] = useState({
         departamento: "",
-        tipoFuncionalidade: "",
+        tipoFuncionalidadeId: "",
         descricao: ""
     });
+
+    const { solicitacao, error, loading, enviarSolicitacao } = useSolicitacaoFuncionalidade("Híbrida");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,21 +19,21 @@ export default function FuncionalidadesHibridas() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Lógica para enviar o formulário, utilizando o ID do usuário logado
-        console.log(formData);
+        console.log("Dados do Formulário:", formData);
+        enviarSolicitacao(formData);
     };
 
+    // Lista de funcionalidades pré-definidas
     const funcionalidades = [
-        { id: 1, nome: "Sistema de Gestão de Documentos", descricao: "Organize e gerencie documentos empresariais com controle de acesso.", imagem: "/images/gestao-documentos.jpg" },
-        { id: 2, nome: "Análise de Navegação", descricao: "Monitore o comportamento dos usuários e otimize a experiência do cliente.", imagem: "/images/analise-navegacao.jpg" },
-        { id: 3, nome: "Gestão de Recursos Humanos", descricao: "Gerencie dados de funcionários e integre com sistemas de folha de pagamento.", imagem: "/images/gestao-rh.jpg" },
-        { id: 4, nome: "Sistema de Controle de Qualidade", descricao: "Monitore a qualidade dos produtos com relatórios de não conformidade.", imagem: "/images/controle-qualidade.jpg" },
-        { id: 5, nome: "Dashboard", descricao: "Visualize métricas e KPIs em um painel personalizado.", imagem: "/images/dashboard.jpg" },
-        { id: 6, nome: "Landing Page", descricao: "Crie páginas de destino personalizadas para suas campanhas.", imagem: "/images/landing-page.jpg" },
-        { id: 7, nome: "Site", descricao: "Desenvolva um site adaptado às suas necessidades comerciais.", imagem: "/images/site.jpg" },
-        { id: 8, nome: "Relatório de Análise de Cliente", descricao: "Obtenha insights detalhados sobre o comportamento dos clientes.", imagem: "/images/analise-cliente.jpg" },
-        { id: 9, nome: "Ferramenta de Análise de Preço", descricao: "Analise preços de mercado e ajuste sua estratégia de precificação.", imagem: "/images/analise-preco.jpg" },
-        { id: 10, nome: "CRM", descricao: "Gerencie relacionamentos com clientes e melhore o atendimento.", imagem: "/images/crm.jpg" },
+        { id: 1, nome: "Sistema de Gestão de Documentos", descricao: "Organize e gerencie documentos empresariais com controle de acesso.", imagem: "/images/funcionalidades/hibridas/sistema_de_gestao_de_documentos.png" },
+        { id: 2, nome: "Análise de Navegação", descricao: "Monitore o comportamento dos usuários e otimize a experiência do cliente.", imagem: "/images/funcionalidades/hibridas/analise_de_navegacao.png" },
+        { id: 3, nome: "Gestão de Recursos Humanos", descricao: "Gerencie dados de funcionários e integre com sistemas de folha de pagamento.", imagem: "/images/funcionalidades/hibridas/gestao_de_recursos_humanos.png" },
+        { id: 4, nome: "Sistema de Controle de Qualidade", descricao: "Monitore a qualidade dos produtos com relatórios de não conformidade.", imagem: "/images/funcionalidades/hibridas/sistema_de_controle_de_qualidade.png" },
+        { id: 5, nome: "Dashboard", descricao: "Visualize métricas e KPIs em um painel personalizado.", imagem: "/images/funcionalidades/hibridas/dashboard.png" },
+        { id: 6, nome: "Landing Page", descricao: "Crie páginas de destino personalizadas para suas campanhas.", imagem: "/images/funcionalidades/hibridas/landing_page.png" },
+        { id: 7, nome: "Site", descricao: "Desenvolva um site adaptado às suas necessidades comerciais.", imagem: "/images/funcionalidades/hibridas/site.png" },
+        { id: 8, nome: "Relatório de Análise de Cliente", descricao: "Obtenha insights detalhados sobre o comportamento dos clientes.", imagem: "/images/funcionalidades/hibridas/relatorio_analise_de_cliente.png" },
+        { id: 9, nome: "Ferramenta de Análise de Preço", descricao: "Analise preços de mercado e ajuste sua estratégia de precificação.", imagem: "/images/funcionalidades/hibridas/ferramenta_de_analise_de_preco.png" }
     ];
 
     return (
@@ -82,20 +85,20 @@ export default function FuncionalidadesHibridas() {
                     <div className="mb-4">
                         <label className="block text-gray-700">Tipo de Funcionalidade</label>
                         <select
-                            name="tipoFuncionalidade"
-                            value={formData.tipoFuncionalidade}
+                            name="tipoFuncionalidadeId"
+                            value={formData.tipoFuncionalidadeId}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
                             required
                         >
                             <option value="">Selecione o tipo de funcionalidade</option>
-                            {["Dashboard", "Landing Page", "Site", "Relatório", "CRM", "Análise de Preço"].map((tipo, index) => (
-                                <option key={index} value={tipo}>{tipo}</option>
+                            {funcionalidades.map(func => (
+                                <option key={func.id} value={func.id}>{func.nome}</option>
                             ))}
                         </select>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Descreva suas necessidades</label>
+                        <label className="block text-gray-700">Descrição</label>
                         <textarea
                             name="descricao"
                             value={formData.descricao}
@@ -106,9 +109,11 @@ export default function FuncionalidadesHibridas() {
                             required
                         ></textarea>
                     </div>
-                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Enviar Solicitação
+                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" disabled={loading}>
+                        {loading ? 'Enviando...' : 'Enviar Solicitação'}
                     </button>
+                    {error && <p className="text-red-500 mt-2">{error}</p>}
+                    {solicitacao && <p className="text-green-500 mt-2">Solicitação enviada com sucesso!</p>}
                 </form>
             </section>
         </div>

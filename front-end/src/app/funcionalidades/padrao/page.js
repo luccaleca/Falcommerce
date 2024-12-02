@@ -9,37 +9,37 @@ export default function FuncionalidadesPadrao() {
 
     const funcionalidades = [
         // Financeiro
-        { id: 1, nome: "Gestão de Orçamento", departamento: "Financeiro", descricao: "Controle de despesas e receitas", imagem: "/images/gestao-orcamento.jpg" },
-        { id: 2, nome: "Faturamento e Cobrança", departamento: "Financeiro", descricao: "Processamento de pagamentos", imagem: "/images/faturamento.jpg" },
-        { id: 3, nome: "Relatórios Financeiros", departamento: "Financeiro", descricao: "Análise de fluxo de caixa", imagem: "/images/relatorios-financeiros.jpg" },
-        { id: 4, nome: "Gestão de Impostos", departamento: "Financeiro", descricao: "Cálculo e declaração de impostos", imagem: "/images/gestao-impostos.jpg" },
+        { id: 1, nome: "Gestão de Orçamento", departamento: "Financeiro", descricao: "Controle de despesas e receitas", imagem: "/images/funcionalidades/padrao/financeiro/gestao_de_orcamento.png" },
+        { id: 2, nome: "Faturamento e Cobrança", departamento: "Financeiro", descricao: "Processamento de pagamentos", imagem: "/images/funcionalidades/padrao/financeiro/faturamento_e_cobranca.png" },
+        { id: 3, nome: "Relatórios Financeiros", departamento: "Financeiro", descricao: "Análise de fluxo de caixa", imagem: "/images/funcionalidades/padrao/financeiro/relatorios_financeiros.png" },
+        { id: 4, nome: "Gestão de Impostos", departamento: "Financeiro", descricao: "Cálculo e declaração de impostos", imagem: "/images/funcionalidades/padrao/financeiro/gestao_de_impostos.png" },
 
         // Marketing
-        { id: 5, nome: "Gestão de Campanhas", departamento: "Marketing", descricao: "Planejamento de campanhas promocionais", imagem: "/images/campanhas.jpg" },
-        { id: 6, nome: "SEO e SEM", departamento: "Marketing", descricao: "Otimização para motores de busca", imagem: "/images/seo-sem.jpg" },
-        { id: 7, nome: "Email Marketing", departamento: "Marketing", descricao: "Envio de newsletters e promoções", imagem: "/images/email-marketing.jpg" },
-        { id: 8, nome: "Gestão de Redes Sociais", departamento: "Marketing", descricao: "Planejamento de conteúdo", imagem: "/images/redes-sociais.jpg" },
-        { id: 9, nome: "Análise de Dados de Marketing", departamento: "Marketing", descricao: "Centralização de dados de marketing", imagem: "/images/analise-marketing.jpg" },
+        { id: 5, nome: "Gestão de Campanhas", departamento: "Marketing", descricao: "Planejamento de campanhas promocionais", imagem: "/images/funcionalidades/padrao/marketing/gestao_de_campanha.png" },
+        { id: 6, nome: "SEO e SEM", departamento: "Marketing", descricao: "Otimização para motores de busca", imagem: "/images/funcionalidades/padrao/marketing/seo_sem.png" },
+        { id: 7, nome: "Email Marketing", departamento: "Marketing", descricao: "Envio de newsletters e promoções", imagem: "/images/funcionalidades/padrao/marketing/email_marketing.png" },
+        { id: 8, nome: "Gestão de Redes Sociais", departamento: "Marketing", descricao: "Planejamento de conteúdo", imagem: "/images/funcionalidades/padrao/marketing/gestao_de_redes_sociais.png" },
+        { id: 9, nome: "Análise de Dados de Marketing", departamento: "Marketing", descricao: "Centralização de dados de marketing", imagem: "/images/funcionalidades/padrao/marketing/analise_de_dados_de_marketing.png" },
 
         // Estoque
-        { id: 10, nome: "Controle de Inventário", departamento: "Estoque", descricao: "Monitoramento de níveis de estoque", imagem: "/images/inventario.jpg" },
-        { id: 11, nome: "Gestão de Fornecedores", departamento: "Estoque", descricao: "Coordenação com fornecedores", imagem: "/images/fornecedores.jpg" },
-        { id: 12, nome: "Análise de Demanda", departamento: "Estoque", descricao: "Previsão de demanda", imagem: "/images/demanda.jpg" },
-        { id: 13, nome: "Gestão de Armazém", departamento: "Estoque", descricao: "Otimização de armazenamento", imagem: "/images/armazem.jpg" },
+        { id: 10, nome: "Controle de Inventário", departamento: "Estoque", descricao: "Monitoramento de níveis de estoque", imagem: "/images/funcionalidades/padrao/estoque/controle_de_inventario.png" },
+        { id: 11, nome: "Gestão de Fornecedores", departamento: "Estoque", descricao: "Coordenação com fornecedores", imagem: "/images/funcionalidades/padrao/estoque/gestao_de_fornecedores.png" },
+        { id: 12, nome: "Análise de Demanda", departamento: "Estoque", descricao: "Previsão de demanda", imagem: "/images/funcionalidades/padrao/estoque/analise_de_demanda.png" },
+        { id: 13, nome: "Gestão de Armazém", departamento: "Estoque", descricao: "Otimização de armazenamento", imagem: "/images/funcionalidades/padrao/estoque/gestao_de_armazem.png" },
        
         // Logística
-        { id: 15, nome: "Gestão de Transporte", departamento: "Logística", descricao: "Planejamento de entregas", imagem: "/images/transporte.jpg" },
-        { id: 16, nome: "Rastreamento de Encomendas", departamento: "Logística", descricao: "Monitoramento de pedidos", imagem: "/images/rastreamento.jpg" },
-        { id: 17, nome: "Otimização de Rotas", departamento: "Logística", descricao: "Planejamento de rotas eficientes", imagem: "/images/rotas.jpg" },
-        { id: 18, nome: "Gestão de Devoluções", departamento: "Logística", descricao: "Processamento de devoluções", imagem: "/images/devolucoes.jpg" },
-        { id: 19, nome: "Integração com Sistemas de Armazém", departamento: "Logística", descricao: "Sincronização de dados", imagem: "/images/integracao-armazem.jpg" },
+        { id: 15, nome: "Gestão de Transporte", departamento: "Logística", descricao: "Planejamento de entregas", imagem: "/images/funcionalidades/padrao/logistica/gestao_de_transporte.png" },
+        { id: 16, nome: "Rastreamento de Encomendas", departamento: "Logística", descricao: "Monitoramento de pedidos", imagem: "/images/funcionalidades/padrao/logistica/rastreamento_de_encomenda.png" },
+        { id: 17, nome: "Otimização de Rotas", departamento: "Logística", descricao: "Planejamento de rotas eficientes", imagem: "/images/funcionalidades/padrao/logistica/otimizacao_de_rota.png" },
+        { id: 18, nome: "Gestão de Devoluções", departamento: "Logística", descricao: "Processamento de devoluções", imagem: "/images/funcionalidades/padrao/logistica/gestao_de_devolucao.png" },
+        
 
         // Vendas
-        { id: 20, nome: "Gestão de Leads", departamento: "Vendas", descricao: "Captura e nutrição de clientes potenciais", imagem: "/images/leads.jpg" },
-        { id: 21, nome: "CRM", departamento: "Vendas", descricao: "Gerenciamento de relacionamento com clientes", imagem: "/images/crm.jpg" },
-        { id: 22, nome: "Análise de Vendas", departamento: "Vendas", descricao: "Relatórios de desempenho de vendas", imagem: "/images/analise-vendas.jpg" },
-        { id: 23, nome: "Gestão de Promoções", departamento: "Vendas", descricao: "Configuração de promoções e descontos", imagem: "/images/promocoes.jpg" },
-        { id: 24, nome: "Integração com Plataformas de E-commerce", departamento: "Vendas", descricao: "Sincronização de dados de vendas", imagem: "/images/integracao-ecommerce.jpg" },
+        { id: 20, nome: "Gestão de Leads", departamento: "Vendas", descricao: "Captura e nutrição de clientes potenciais", imagem: "/images/funcionalidades/padrao/vendas/gestao_de_leads.png" },
+        { id: 21, nome: "CRM", departamento: "Vendas", descricao: "Gerenciamento de relacionamento com clientes", imagem: "/images/funcionalidades/padrao/vendas/crm.png" },
+        { id: 22, nome: "Análise de Vendas", departamento: "Vendas", descricao: "Relatórios de desempenho de vendas", imagem: "/images/funcionalidades/padrao/vendas/analise_de_vendas.png" },
+        { id: 23, nome: "Gestão de Promoções", departamento: "Vendas", descricao: "Configuração de promoções e descontos", imagem: "/images/funcionalidades/padrao/vendas/gestao_de_promocoes.png" },
+        
     ];
 
     const departamentos = [...new Set(funcionalidades.map(f => f.departamento))];

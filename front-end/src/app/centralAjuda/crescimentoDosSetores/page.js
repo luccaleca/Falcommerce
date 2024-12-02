@@ -1,4 +1,3 @@
-// src/app/crescimento/page.js
 "use client";
 
 import { useState } from 'react';
@@ -84,9 +83,33 @@ export default function CrescimentoDosSetores() {
                 )}
 
                 {mode === 'hybrid' && (
-                    <section>
-                        <h2 className="text-3xl font-bold mb-4">E-commerce e Físico</h2>
-                        <p>Integre suas operações físicas e online de forma eficaz para um serviço ao cliente mais coeso e uma gestão de inventário unificada.</p>
+                    <section className="text-center">
+                        <h2 className="text-3xl font-bold mb-8">E-commerce e Físico</h2>
+
+                        <div className="mb-12 max-w-prose mx-auto text-left">
+                            <h3 className="text-2xl font-semibold mb-4">Integração de Canais e Gestão de Inventário</h3>
+                            <p>Ao integrar suas operações online e físicas, você pode gerenciar seu inventário de forma unificada, garantindo que a disponibilidade de produtos esteja sincronizada em todos os canais. Isso não apenas melhora a eficiência operacional, mas também otimiza a experiência do cliente, que pode se beneficiar de opções como clique e retire.</p>
+                        </div>
+
+                        <div className="mb-12 max-w-prose mx-auto text-left">
+                            <h3 className="text-2xl font-semibold mb-4">Experiência do Cliente no Ponto de Venda</h3>
+                            <p>A experiência em loja física continua sendo um componente crítico da jornada do cliente. Combinando os dados de interações online e offline, é possível personalizar a abordagem de vendas e oferecer recomendações mais assertivas, aumentando a satisfação do cliente e as oportunidades de upselling.</p>
+                        </div>
+
+                        <div className="mb-12 max-w-prose mx-auto text-left">
+                            <h3 className="text-2xl font-semibold mb-4">Marketing Omnichannel</h3>
+                            <p>Uma estratégia de marketing omnichannel, que sincroniza campanhas online e offline, é essencial para alcançar clientes em múltiplos pontos de contato. Isso envolve o uso de dados coletados de ambas as frentes para criar campanhas coesas que engajam o cliente de maneira contínua e consistente.</p>
+                        </div>
+
+                        <div className="mb-12 max-w-prose mx-auto text-left">
+                            <h3 className="text-2xl font-semibold mb-4">Logística e Cumprimento de Pedidos</h3>
+                            <p>Para aqueles com operações físicas e online, é vital coordenar a logística para suportar tanto a entrega em domicílio quanto a coleta em loja. O uso de tecnologia de rastreamento pode ajudar a melhorar a eficiência e garantir que os consumidores tenham uma experiência de entrega confiável e flexível.</p>
+                        </div>
+
+                        <div className="mb-12 max-w-prose mx-auto text-left">
+                            <h3 className="text-2xl font-semibold mb-4">Gestão de Dados e Análise</h3>
+                            <p>Implementar um sistema centralizado de gestão de dados permite uma visão holística do desempenho do negócio. A análise de dados contínua ajuda a identificar tendências de consumo e ajusta estratégias tanto para pontos de venda físicos quanto para plataformas digitais.</p>
+                        </div>
                     </section>
                 )}
             </div>

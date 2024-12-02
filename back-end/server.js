@@ -7,6 +7,7 @@ const sequelize = require('./src/config/db');
 
 const authRoutes = require('./src/routes/authRoutes');
 const assinaturaRoutes = require('./src/routes/assinaturaRoutes'); 
+const solicitacaoFuncionalidadeRoutes = require('./src/routes/solicitacaoFuncionalidadeRoutes');
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Usar rotas
 app.use('/auth', authRoutes);
 app.use('/assinatura', assinaturaRoutes); 
+app.use('/solicitacaoFuncionalidade', solicitacaoFuncionalidadeRoutes); 
 
 
 // Middleware para tratar erros

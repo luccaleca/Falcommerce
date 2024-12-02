@@ -10,21 +10,21 @@ export default function Blog() {
             titulo: "Como otimizar seu e-commerce",
             descricao: "Dicas e truques para melhorar a performance do seu e-commerce.",
             data: "29 de Outubro de 2024",
-            imagem: "/images/otimizar-ecommerce.jpg"
+            imagem: "/images/blog/blog_otimizar_ecommerce.png"
         },
         {
             id: 2,
             titulo: "Tendências de marketing digital em 2024",
             descricao: "Descubra as principais tendências de marketing digital para o próximo ano.",
             data: "15 de Outubro de 2024",
-            imagem: "/images/tendencias-marketing.jpg"
+            imagem: "/images/blog/tendencia_marketing.png"
         },
         {
             id: 3,
             titulo: "Guia completo para SEO",
             descricao: "Tudo o que você precisa saber para melhorar o SEO do seu site.",
             data: "1 de Outubro de 2024",
-            imagem: "/images/seo.jpg"
+            imagem: "/images/blog/guia_ceo.png"
         }
     ];
 
