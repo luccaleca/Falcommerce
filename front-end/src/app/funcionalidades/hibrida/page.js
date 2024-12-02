@@ -33,7 +33,12 @@ export default function FuncionalidadesHibridas() {
         { id: 6, nome: "Landing Page", descricao: "Crie páginas de destino personalizadas para suas campanhas.", imagem: "/images/funcionalidades/hibridas/landing_page.png" },
         { id: 7, nome: "Site", descricao: "Desenvolva um site adaptado às suas necessidades comerciais.", imagem: "/images/funcionalidades/hibridas/site.png" },
         { id: 8, nome: "Relatório de Análise de Cliente", descricao: "Obtenha insights detalhados sobre o comportamento dos clientes.", imagem: "/images/funcionalidades/hibridas/relatorio_analise_de_cliente.png" },
+<<<<<<< HEAD
         { id: 9, nome: "Ferramenta de Análise de Preço", descricao: "Analise preços de mercado e ajuste sua estratégia de precificação.", imagem: "/images/funcionalidades/hibridas/ferramenta_de_analise_de_preco.png" }
+=======
+        { id: 9, nome: "Ferramenta de Análise de Preço", descricao: "Analise preços de mercado e ajuste sua estratégia de precificação.", imagem: "/images/funcionalidades/hibridas/ferramenta_de_analise_de_preco.png" },
+        
+>>>>>>> 8856e814d9e825c65159e1c63f544e5317a67936
     ];
 
     return (
@@ -92,8 +97,13 @@ export default function FuncionalidadesHibridas() {
                             required
                         >
                             <option value="">Selecione o tipo de funcionalidade</option>
+<<<<<<< HEAD
                             {funcionalidades.map(func => (
                                 <option key={func.id} value={func.id}>{func.nome}</option>
+=======
+                            {["Dashboard","Sistema de gestão de documentos","Analise de navegação", "Site","Gestão de Recursos Humanos", "Sistema de controle de qualidade", "Landing Page", "Site", "Relatório de analise de cliente", "Análise de Preço"].map((tipo, index) => (
+                                <option key={index} value={tipo}>{tipo}</option>
+>>>>>>> 8856e814d9e825c65159e1c63f544e5317a67936
                             ))}
                         </select>
                     </div>

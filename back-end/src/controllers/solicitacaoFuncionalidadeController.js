@@ -4,8 +4,11 @@ exports.criarSolicitacao = async (req, res) => {
     try {
         const { usuarioId, funcionalidadeId, tipo, departamento, descricao } = req.body;
 
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 8856e814d9e825c65159e1c63f544e5317a67936
         // Chama o serviço para criar a solicitação
         const novaSolicitacao = await solicitacaoFuncionalidadeService.criarSolicitacao({
             usuarioId,

@@ -27,7 +27,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Usar rotas
 app.use('/auth', authRoutes);
 app.use('/assinatura', assinaturaRoutes); 
+<<<<<<< HEAD
 app.use('/solicitacaoFuncionalidade', solicitacaoFuncionalidadeRoutes); 
+=======
+app.use('/solicitacoesFuncionalidade', solicitacoesFuncionalidadeRoutes); 
+>>>>>>> 8856e814d9e825c65159e1c63f544e5317a67936
 
 
 // Middleware para tratar erros
